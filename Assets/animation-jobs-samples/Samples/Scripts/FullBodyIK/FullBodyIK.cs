@@ -114,7 +114,6 @@ public class FullBodyIK : MonoBehaviour
         rightKneeHintEffector.GetComponent<HintEffector>().weight = 1.0f;
         leftElbowHintEffector.GetComponent<HintEffector>().weight = 1.0f;
         rightElbowHintEffector.GetComponent<HintEffector>().weight = 1.0f;
-        bodyRotationEffector.GetComponent<HintEffector>().weight = 1.0f;
     }
 
     private void SyncIKFromPose()
