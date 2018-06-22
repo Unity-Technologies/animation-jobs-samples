@@ -8,5 +8,7 @@ public class Effector : MonoBehaviour
     public float positionWeight;
     [Range(0.0f,1.0f)]
     public float rotationWeight;
+    [Range(0.0f,1.0f)]
+    public float pullWeight;
 }
 

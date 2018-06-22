@@ -1,29 +1,12 @@
 About Animation C# Jobs Samples
 ===============================
 
-The Animation C# Jobs Samples package includes examples of Playable graphs
+The Animation C# Jobs Samples includes examples of Playable graphs
 using Animation C# Jobs. For more information, see
 [AnimationScriptPlayable](https://docs.unity3d.com/ScriptReference/Experimental.Animations.AnimationScriptPlayable.html).
 
-Installing Animation C# Jobs Samples
-====================================
-
-To install this package, follow the instructions in the
-[Package Manager documentation](https://docs.unity3d.com/Packages/com.unity.package-manager-ui@latest/index.html). 
-
 Using Animation C# Jobs Samples
 ===============================
-
-Because package content is read-only, it is not possible to open scenes
-directly from a package directory, but it is possible to copy the scene files
-locally, in the `Assets` folder.
-
-To do so, go to `Packages/Animation C# Jobs Samples/Samples/Scenes`, then
-select the sample scenes you want to try, and copy them into your `Assets`
-folder.
-
-Once copied, go to your `Assets` folder and open the Unity scene that you would
-like to test.
 
 Samples
 -------
@@ -80,6 +63,7 @@ Document revision history
  
 | Date          | Reason                                |
 |---------------|---------------------------------------|
+| June 22, 2018 | Improved FullBodyIK pull solver.      |
 | June 01, 2018 | New way of testing the samples.       |
 | May 30, 2018  | First public release: 0.5.0-preview.  |
 | May 07, 2018  | Creation of the package.              |
