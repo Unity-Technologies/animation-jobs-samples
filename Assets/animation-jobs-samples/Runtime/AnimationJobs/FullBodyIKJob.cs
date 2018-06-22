@@ -212,6 +212,8 @@ public struct FullBodyIKJob : IAnimationJob
             bodyPosition += deltaPosition;
         }
 
+        limbParts.Dispose();
+
         return bodyPosition - originalBodyPosition;
     }
 

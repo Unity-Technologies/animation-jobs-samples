@@ -117,18 +117,18 @@ public class FullBodyIK : MonoBehaviour
 
     private void ResetIKWeight()
     {
-        m_LeftFootEffector.GetComponent<Effector>().positionWeight = 1.0f;
-        m_LeftFootEffector.GetComponent<Effector>().rotationWeight = 1.0f;
-        m_LeftFootEffector.GetComponent<Effector>().pullWeight = 1.0f;
-        m_RightFootEffector.GetComponent<Effector>().positionWeight = 1.0f;
-        m_RightFootEffector.GetComponent<Effector>().rotationWeight = 1.0f;
-        m_RightFootEffector.GetComponent<Effector>().pullWeight = 1.0f;
-        m_LeftHandEffector.GetComponent<Effector>().positionWeight = 1.0f;
-        m_LeftHandEffector.GetComponent<Effector>().rotationWeight = 1.0f;
-        m_LeftHandEffector.GetComponent<Effector>().pullWeight = 1.0f;
-        m_RightHandEffector.GetComponent<Effector>().positionWeight = 1.0f;
-        m_RightHandEffector.GetComponent<Effector>().rotationWeight = 1.0f;
-        m_RightHandEffector.GetComponent<Effector>().pullWeight = 1.0f;
+        m_LeftFootEffector.GetComponent<Effector>().positionWeight = 0.0f;
+        m_LeftFootEffector.GetComponent<Effector>().rotationWeight = 0.0f;
+        m_LeftFootEffector.GetComponent<Effector>().pullWeight = 0.0f;
+        m_RightFootEffector.GetComponent<Effector>().positionWeight = 0.0f;
+        m_RightFootEffector.GetComponent<Effector>().rotationWeight = 0.0f;
+        m_RightFootEffector.GetComponent<Effector>().pullWeight = 0.0f;
+        m_LeftHandEffector.GetComponent<Effector>().positionWeight = 0.0f;
+        m_LeftHandEffector.GetComponent<Effector>().rotationWeight = 0.0f;
+        m_LeftHandEffector.GetComponent<Effector>().pullWeight = 0.0f;
+        m_RightHandEffector.GetComponent<Effector>().positionWeight = 0.0f;
+        m_RightHandEffector.GetComponent<Effector>().rotationWeight = 0.0f;
+        m_RightHandEffector.GetComponent<Effector>().pullWeight = 0.0f;
 
         m_LeftKneeHintEffector.GetComponent<HintEffector>().weight = 0.0f;
         m_RightKneeHintEffector.GetComponent<HintEffector>().weight = 0.0f;
