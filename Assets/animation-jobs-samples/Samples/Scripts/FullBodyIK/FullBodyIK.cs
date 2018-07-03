@@ -211,6 +211,7 @@ public class FullBodyIK : MonoBehaviour
             throw new InvalidOperationException("Avatar must be a humanoid.");
 
         m_Graph = PlayableGraph.Create();
+        m_Graph.SetTimeUpdateMode(DirectorUpdateMode.GameTime);
         var output = AnimationPlayableOutput.Create(m_Graph, "output", m_Animator);
 
         var clip = SampleUtility.LoadAnimationClipFromFbx("DefaultMale/Models/DefaultMale_Humanoid", "Idle");

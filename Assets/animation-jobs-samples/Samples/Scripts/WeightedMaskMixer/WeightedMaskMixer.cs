@@ -88,6 +88,7 @@ public class WeightedMaskMixer : MonoBehaviour
 
         // Create graph with custom mixer.
         m_Graph = PlayableGraph.Create("CustomMixer");
+        m_Graph.SetTimeUpdateMode(DirectorUpdateMode.GameTime);
 
         m_CustomMixerPlayable = AnimationScriptPlayable.Create(m_Graph, job);
         m_CustomMixerPlayable.SetProcessInputs(false);
