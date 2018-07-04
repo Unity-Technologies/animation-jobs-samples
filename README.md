@@ -1,15 +1,11 @@
-About Animation C# Jobs Samples
-===============================
+Animation C# Jobs Samples
+=========================
 
-The Animation C# Jobs Samples includes examples of Playable graphs
-using Animation C# Jobs. For more information, see
-[AnimationScriptPlayable](https://docs.unity3d.com/ScriptReference/Experimental.Animations.AnimationScriptPlayable.html).
+The Animation C# Jobs Samples repository includes examples of Playable graphs
+using Animation C# Jobs. For more information, see [AnimationScriptPlayable](https://docs.unity3d.com/ScriptReference/Experimental.Animations.AnimationScriptPlayable.html).
 
-Using Animation C# Jobs Samples
-===============================
-
-Samples
--------
+The samples
+-----------
 
 ### SimpleMixer
 
@@ -35,35 +31,34 @@ This sample adds a two-bone IK on a generic human character.
 This sample create a fullbody IK on a humanoid character.
 
 Technical details
-=================
+-----------------
 
-Requirements
-------------
+### Installation
 
-This version of Animation C# Jobs Samples is compatible with Unity 2018.2 and
-later.
+Simply `git clone` the repo somewhere and open the newly created directory with
+Unity (2018.2 and later).
 
-The [GraphVisualizer](https://github.com/Unity-Technologies/graph-visualizer)
+Optionally, the [GraphVisualizer](https://github.com/Unity-Technologies/graph-visualizer)
 can be used to have a visual representation of the graphs in the samples.
 
-Package contents
-----------------
+### Project contents
 
-The following table indicates the structure of the package:
+The following table indicates the structure of the `Assets/animation-jobs-samples` directory:
 
-| Location                  | Description                                                                                   |
-|---------------------------|-----------------------------------------------------------------------------------------------|
-| `Resources`               | Contains all the resources that the samples need (e.g. meshes, textures, animations, ...).    |
-| `Runtime/AnimationJobs`   | Contains all the animation C# jobs.                                                           |
-| `Samples/Scenes`          | Contains all the sample scenes.                                                               |
-| `Samples/Scripts`         | Contains all the sample scripts.                                                              |
+| Location                  | Description                                                                       |
+|---------------------------|-----------------------------------------------------------------------------------|
+| `Resources`               | Contains the resources for the samples (e.g. meshes, textures, animations, ...).  |
+| `Runtime/AnimationJobs`   | Contains the animation C# jobs.                                                   |
+| `Samples/Scripts`         | Contains the sample C# scripts.                                                   |
+| `Scenes`                  | Contains the sample scenes.                                                       |
 
-Document revision history
--------------------------
+### Document revision history
  
 | Date          | Reason                                |
 |---------------|---------------------------------------|
+| July 4, 2018  | Improved the documentation.           |
 | June 22, 2018 | Improved FullBodyIK pull solver.      |
+| June 18, 2018 | Moved to GitHub.                      |
 | June 01, 2018 | New way of testing the samples.       |
 | May 30, 2018  | First public release: 0.5.0-preview.  |
 | May 07, 2018  | Creation of the package.              |
