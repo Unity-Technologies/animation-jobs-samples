@@ -60,6 +60,7 @@ public class LookAt : MonoBehaviour
         m_Target = SampleUtility.CreateEffector("Effector_" + joint.name, targetPosition, Quaternion.identity);
 
         m_Graph = PlayableGraph.Create("TwoBoneIK");
+        m_Graph.SetTimeUpdateMode(DirectorUpdateMode.GameTime);
         var output = AnimationPlayableOutput.Create(m_Graph, "ouput", GetComponent<Animator>());
 
         var animator = GetComponent<Animator>();

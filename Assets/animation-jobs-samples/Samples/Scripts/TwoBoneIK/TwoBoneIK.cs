@@ -34,6 +34,7 @@ public class TwoBoneIK : MonoBehaviour
         m_Effector = SampleUtility.CreateEffector("Effector_" + endJoint.name, endJoint.position, endJoint.rotation);
 
         m_Graph = PlayableGraph.Create("TwoBoneIK");
+        m_Graph.SetTimeUpdateMode(DirectorUpdateMode.GameTime);
         var output = AnimationPlayableOutput.Create(m_Graph, "ouput", GetComponent<Animator>());
 
         var twoBoneIKJob = new TwoBoneIKJob();
