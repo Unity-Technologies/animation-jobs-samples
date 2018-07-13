@@ -191,13 +191,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 764162137}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 2.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &1083979454
 GameObject:
   m_ObjectHideFlags: 0
@@ -280,7 +280,8 @@ Prefab:
   m_IsPrefabAsset: 0
 --- !u!1 &1531784469 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 100004, guid: 85d938798cd2f1443a0a3fc3a0729f02, type: 3}
+  m_CorrespondingSourceObject: {fileID: 100004, guid: 85d938798cd2f1443a0a3fc3a0729f02,
+    type: 3}
   m_PrefabInternal: {fileID: 1531784468}
 --- !u!114 &1531784470
 MonoBehaviour:
@@ -296,3 +297,124 @@ MonoBehaviour:
   syncGoal: 1
   stiffness: 1
   maxPullIteration: 5
+  defaultEffectorPositionWeight: 1
+  defaultEffectorRotationWeight: 1
+  defaultEffectorPullWeight: 1
+  defaultHintWeight: 0
+--- !u!4 &1531784471 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400004, guid: 85d938798cd2f1443a0a3fc3a0729f02,
+    type: 3}
+  m_PrefabInternal: {fileID: 1531784468}
+--- !u!1001 &1644862112
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1531784471}
+    m_Modifications:
+    - target: {fileID: 224469054905980258, guid: 6a1bf4ba7e7c2eb4e823f17c95fa407d,
+        type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224469054905980258, guid: 6a1bf4ba7e7c2eb4e823f17c95fa407d,
+        type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224469054905980258, guid: 6a1bf4ba7e7c2eb4e823f17c95fa407d,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 224469054905980258, guid: 6a1bf4ba7e7c2eb4e823f17c95fa407d,
+        type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224469054905980258, guid: 6a1bf4ba7e7c2eb4e823f17c95fa407d,
+        type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224469054905980258, guid: 6a1bf4ba7e7c2eb4e823f17c95fa407d,
+        type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224469054905980258, guid: 6a1bf4ba7e7c2eb4e823f17c95fa407d,
+        type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224469054905980258, guid: 6a1bf4ba7e7c2eb4e823f17c95fa407d,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 224469054905980258, guid: 6a1bf4ba7e7c2eb4e823f17c95fa407d,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 1.852
+      objectReference: {fileID: 0}
+    - target: {fileID: 224469054905980258, guid: 6a1bf4ba7e7c2eb4e823f17c95fa407d,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 1.804
+      objectReference: {fileID: 0}
+    - target: {fileID: 224469054905980258, guid: 6a1bf4ba7e7c2eb4e823f17c95fa407d,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 809.6407
+      objectReference: {fileID: 0}
+    - target: {fileID: 224469054905980258, guid: 6a1bf4ba7e7c2eb4e823f17c95fa407d,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 548.3727
+      objectReference: {fileID: 0}
+    - target: {fileID: 224469054905980258, guid: 6a1bf4ba7e7c2eb4e823f17c95fa407d,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224469054905980258, guid: 6a1bf4ba7e7c2eb4e823f17c95fa407d,
+        type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224469054905980258, guid: 6a1bf4ba7e7c2eb4e823f17c95fa407d,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224469054905980258, guid: 6a1bf4ba7e7c2eb4e823f17c95fa407d,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224469054905980258, guid: 6a1bf4ba7e7c2eb4e823f17c95fa407d,
+        type: 2}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224469054905980258, guid: 6a1bf4ba7e7c2eb4e823f17c95fa407d,
+        type: 2}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1998645327740022, guid: 6a1bf4ba7e7c2eb4e823f17c95fa407d, type: 2}
+      propertyPath: m_Name
+      value: InfoText
+      objectReference: {fileID: 0}
+    - target: {fileID: 114162299806947428, guid: 6a1bf4ba7e7c2eb4e823f17c95fa407d,
+        type: 2}
+      propertyPath: m_Text
+      value: "Full Body IK Sample\r\n\r\nIn play mode, \r\n - Drag the effectors around
+        to move the limbs\r\n - Position, rotation and pull weights can the changed
+        in the effector's inspector\r\n - Effectors' opacity will change depending
+        on weight\r\n - The body effector can only be affected in rotation"
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6a1bf4ba7e7c2eb4e823f17c95fa407d, type: 2}
+  m_IsPrefabAsset: 0

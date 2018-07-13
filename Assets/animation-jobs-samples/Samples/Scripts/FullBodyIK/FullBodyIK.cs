@@ -15,6 +15,15 @@ public class FullBodyIK : MonoBehaviour
     [Range(1, 50)]
     public int maxPullIteration = 5;
 
+    [Range(0, 1)]
+    public float defaultEffectorPositionWeight = 1.0f;
+    [Range(0, 1)]
+    public float defaultEffectorRotationWeight = 1.0f;
+    [Range(0, 1)]
+    public float defaultEffectorPullWeight = 1.0f;
+    [Range(0, 1)]
+    public float defaultHintWeight = 0.0f;
+
     private GameObject m_LeftFootEffector;
     private GameObject m_RightFootEffector;
     private GameObject m_LeftHandEffector;
@@ -35,25 +44,13 @@ public class FullBodyIK : MonoBehaviour
 
     private static GameObject CreateEffector(string name)
     {
-        var go = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-        if (go != null)
-        {
-            go.name = name;
-            go.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-        }
-
+        var go = SampleUtility.CreateEffector(name, Vector3.zero, Quaternion.identity);
         return go;
     }
 
     private static GameObject CreateBodyEffector(string name)
     {
-        var go = GameObject.CreatePrimitive(PrimitiveType.Plane);
-        if (go != null)
-        {
-            go.name = name;
-            go.transform.localScale = new Vector3(0.05f, 0.05f, 0.05f);
-        }
-
+        var go = SampleUtility.CreateBodyEffector(name, Vector3.zero, Quaternion.identity);
         return go;
     }
 
@@ -117,23 +114,23 @@ public class FullBodyIK : MonoBehaviour
 
     private void ResetIKWeight()
     {
-        m_LeftFootEffector.GetComponent<Effector>().positionWeight = 0.0f;
-        m_LeftFootEffector.GetComponent<Effector>().rotationWeight = 0.0f;
-        m_LeftFootEffector.GetComponent<Effector>().pullWeight = 0.0f;
-        m_RightFootEffector.GetComponent<Effector>().positionWeight = 0.0f;
-        m_RightFootEffector.GetComponent<Effector>().rotationWeight = 0.0f;
-        m_RightFootEffector.GetComponent<Effector>().pullWeight = 0.0f;
-        m_LeftHandEffector.GetComponent<Effector>().positionWeight = 0.0f;
-        m_LeftHandEffector.GetComponent<Effector>().rotationWeight = 0.0f;
-        m_LeftHandEffector.GetComponent<Effector>().pullWeight = 0.0f;
-        m_RightHandEffector.GetComponent<Effector>().positionWeight = 0.0f;
-        m_RightHandEffector.GetComponent<Effector>().rotationWeight = 0.0f;
-        m_RightHandEffector.GetComponent<Effector>().pullWeight = 0.0f;
+        m_LeftFootEffector.GetComponent<Effector>().positionWeight = defaultEffectorPositionWeight;
+        m_LeftFootEffector.GetComponent<Effector>().rotationWeight = defaultEffectorRotationWeight;
+        m_LeftFootEffector.GetComponent<Effector>().pullWeight = defaultEffectorPullWeight;
+        m_RightFootEffector.GetComponent<Effector>().positionWeight = defaultEffectorPositionWeight;
+        m_RightFootEffector.GetComponent<Effector>().rotationWeight = defaultEffectorRotationWeight;
+        m_RightFootEffector.GetComponent<Effector>().pullWeight = defaultEffectorPullWeight;
+        m_LeftHandEffector.GetComponent<Effector>().positionWeight = defaultEffectorPositionWeight;
+        m_LeftHandEffector.GetComponent<Effector>().rotationWeight = defaultEffectorRotationWeight;
+        m_LeftHandEffector.GetComponent<Effector>().pullWeight = defaultEffectorPullWeight;
+        m_RightHandEffector.GetComponent<Effector>().positionWeight = defaultEffectorPositionWeight;
+        m_RightHandEffector.GetComponent<Effector>().rotationWeight = defaultEffectorRotationWeight;
+        m_RightHandEffector.GetComponent<Effector>().pullWeight = defaultEffectorPullWeight;
 
-        m_LeftKneeHintEffector.GetComponent<HintEffector>().weight = 0.0f;
-        m_RightKneeHintEffector.GetComponent<HintEffector>().weight = 0.0f;
-        m_LeftElbowHintEffector.GetComponent<HintEffector>().weight = 0.0f;
-        m_RightElbowHintEffector.GetComponent<HintEffector>().weight = 0.0f;
+        m_LeftKneeHintEffector.GetComponent<HintEffector>().weight = defaultHintWeight;
+        m_RightKneeHintEffector.GetComponent<HintEffector>().weight = defaultHintWeight;
+        m_LeftElbowHintEffector.GetComponent<HintEffector>().weight = defaultHintWeight;
+        m_RightElbowHintEffector.GetComponent<HintEffector>().weight = defaultHintWeight;
     }
 
     private void SyncIKFromPose()
@@ -223,6 +220,11 @@ public class FullBodyIK : MonoBehaviour
         job.stiffness = stiffness;
         job.maxPullIteration = maxPullIteration;
 
+        SetupIKLimbHandle(ref job.leftArm, HumanBodyBones.LeftUpperArm, HumanBodyBones.LeftLowerArm, HumanBodyBones.LeftHand);
+        SetupIKLimbHandle(ref job.rightArm, HumanBodyBones.RightUpperArm, HumanBodyBones.RightLowerArm, HumanBodyBones.RightHand);
+        SetupIKLimbHandle(ref job.leftLeg, HumanBodyBones.LeftUpperLeg, HumanBodyBones.LeftLowerLeg, HumanBodyBones.LeftFoot);
+        SetupIKLimbHandle(ref job.rightLeg, HumanBodyBones.RightUpperLeg, HumanBodyBones.RightLowerLeg, HumanBodyBones.RightFoot);
+
         m_LeftFootEffector = SetupEffector(ref job.leftFootEffector, "LeftFootEffector");
         m_RightFootEffector = SetupEffector(ref job.rightFootEffector, "RightFootEffector");
         m_LeftHandEffector = SetupEffector(ref job.leftHandEffector, "LeftHandEffector");
@@ -237,10 +239,7 @@ public class FullBodyIK : MonoBehaviour
 
         m_BodyRotationEffector = SetupBodyEffector(ref job.bodyEffector, "BodyEffector");
 
-        SetupIKLimbHandle(ref job.leftArm, HumanBodyBones.LeftUpperArm, HumanBodyBones.LeftLowerArm, HumanBodyBones.LeftHand);
-        SetupIKLimbHandle(ref job.rightArm, HumanBodyBones.RightUpperArm, HumanBodyBones.RightLowerArm, HumanBodyBones.RightHand);
-        SetupIKLimbHandle(ref job.leftLeg, HumanBodyBones.LeftUpperLeg, HumanBodyBones.LeftLowerLeg, HumanBodyBones.LeftFoot);
-        SetupIKLimbHandle(ref job.rightLeg, HumanBodyBones.RightUpperLeg, HumanBodyBones.RightLowerLeg, HumanBodyBones.RightFoot);
+       
 
         m_IKPlayable = AnimationScriptPlayable.Create<FullBodyIKJob>(m_Graph, job, 1);
         m_IKPlayable.ConnectInput(0, clipPlayable, 0, 1.0f);
@@ -248,6 +247,8 @@ public class FullBodyIK : MonoBehaviour
         output.SetSourcePlayable(m_IKPlayable);
 
         m_Graph.Play();
+        m_Graph.Evaluate(0);
+        SyncIKFromPose();
 
         ResetIKWeight();
     }
