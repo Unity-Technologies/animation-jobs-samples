@@ -56,6 +56,7 @@ The following table indicates the structure of the `Assets/animation-jobs-sample
  
 | Date          | Reason                                |
 |---------------|---------------------------------------|
+| July 18, 2018 | Add the Damping sample.               |
 | July 4, 2018  | Improved the documentation.           |
 | June 22, 2018 | Improved FullBodyIK pull solver.      |
 | June 18, 2018 | Moved to GitHub.                      |
