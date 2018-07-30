@@ -88,17 +88,6 @@ public class Damping : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        if (!m_Graph.IsValid())
-            return;
-
-        // Update job's delta time.
-        var dampingJob = m_DampingPlayable.GetJobData<DampingJob>();
-        dampingJob.deltaTime = Time.deltaTime;
-        m_DampingPlayable.SetJobData(dampingJob);
-    }
-
     void LateUpdate()
     {
         if (!m_Graph.IsValid())

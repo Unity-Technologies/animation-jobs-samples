@@ -11,7 +11,6 @@ public struct DampingJob : IAnimationJob
     public NativeArray<Quaternion> localRotations;
     public NativeArray<Vector3> positions;
     public NativeArray<Vector3> velocities;
-    public float deltaTime;
 
     /// <summary>
     /// Transfer the root position and rotation through the graph.
@@ -73,7 +72,7 @@ public struct DampingJob : IAnimationJob
 
             // Apply damping on this target.
             var velocity = velocities[i];
-            newPosition = Vector3.SmoothDamp(positions[i], newPosition, ref velocity, 0.15f, Mathf.Infinity, deltaTime);
+            newPosition = Vector3.SmoothDamp(positions[i], newPosition, ref velocity, 0.15f, Mathf.Infinity, stream.deltaTime);
 
             // Apply constraint: keep original length between joints.
             newPosition = parentPosition + (newPosition - parentPosition).normalized * localPositions[i].magnitude;
