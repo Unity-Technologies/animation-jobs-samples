@@ -4,6 +4,8 @@ Animation C# Jobs Samples
 The Animation C# Jobs Samples repository includes examples of Playable graphs
 using Animation C# Jobs. For more information, see [AnimationScriptPlayable](https://docs.unity3d.com/ScriptReference/Experimental.Animations.AnimationScriptPlayable.html).
 
+_Compatible with Unity 2018.2 or later._
+
 The samples
 -----------
 
@@ -30,18 +32,17 @@ This sample adds a two-bone IK on a generic human character.
 
 This sample create a fullbody IK on a humanoid character.
 
-Technical details
------------------
-
-### Installation
+Installation
+------------
 
 Simply `git clone` the repo somewhere and open the newly created directory with
-Unity (2018.2 and later).
+Unity.
 
 Optionally, the [GraphVisualizer](https://github.com/Unity-Technologies/graph-visualizer)
 can be used to have a visual representation of the graphs in the samples.
 
-### Project contents
+Project contents
+----------------
 
 The following table indicates the structure of the `Assets/animation-jobs-samples` directory:
 
@@ -51,15 +52,3 @@ The following table indicates the structure of the `Assets/animation-jobs-sample
 | `Runtime/AnimationJobs`   | Contains the animation C# jobs.                                                   |
 | `Samples/Scripts`         | Contains the sample C# scripts.                                                   |
 | `Scenes`                  | Contains the sample scenes.                                                       |
-
-### Document revision history
- 
-| Date          | Reason                                |
-|---------------|---------------------------------------|
-| July 18, 2018 | Add the Damping sample.               |
-| July 4, 2018  | Improved the documentation.           |
-| June 22, 2018 | Improved FullBodyIK pull solver.      |
-| June 18, 2018 | Moved to GitHub.                      |
-| June 01, 2018 | New way of testing the samples.       |
-| May 30, 2018  | First public release: 0.5.0-preview.  |
-| May 07, 2018  | Creation of the package.              |
