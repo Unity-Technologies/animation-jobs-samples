@@ -45,6 +45,7 @@ public struct FullBodyIKJob : IAnimationJob
     public LookEffectorHandle lookAtEffector;
 
     public BodyEffectorHandle bodyEffector;
+    public Vector3 bodyPosition;
 
     public struct IKLimbHandle
     {
@@ -218,16 +219,11 @@ public struct FullBodyIKJob : IAnimationJob
     {
         AnimationHumanStream humanStream = stream.AsHuman();
 
-        Vector3 bodyPosition = humanStream.bodyPosition;
+        bodyPosition = humanStream.bodyPosition;
         Vector3 bodyPositionDelta = SolvePull(stream);
 
         bodyPosition += bodyPositionDelta;
         humanStream.bodyPosition = bodyPosition;
-
-        if (bodyEffector.body.IsValid(stream))
-        {
-            bodyEffector.body.SetPosition(stream, bodyPosition);
-        }
 
         humanStream.SolveIK();
     }

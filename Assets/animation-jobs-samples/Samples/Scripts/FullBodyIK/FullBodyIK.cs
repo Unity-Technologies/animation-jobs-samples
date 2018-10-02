@@ -285,5 +285,9 @@ public class FullBodyIK : MonoBehaviour
             SyncIKFromPose();
             syncGoal = false;
         }
+
+        // Synchronize the body position and the body effector position
+        var job = m_IKPlayable.GetJobData<FullBodyIKJob>();
+        m_BodyRotationEffector.transform.position = job.bodyPosition;
     }
 }
