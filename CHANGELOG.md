@@ -29,4 +29,5 @@ This release includes 6 examples:
 * SimpleMixer
 * WeightedMaskMixer
 
+[Unreleased]: https://github.com/Unity-Technologies/animation-jobs-samples/compare/v1.0.1...HEAD
 [1.0.1]: https://github.com/Unity-Technologies/animation-jobs-samples/compare/v1.0.0...v1.0.1
