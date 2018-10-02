@@ -10,6 +10,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - Regenerated the ProgrammerCat's generic avatar to fix the 90˚ rotation once
   entering play mode.
+- Remove the only write into a scene handle; Scene handles will become
+  read-only starting Unity 2019.1
 
 ## [1.0.1] - 2018-07-30
 
