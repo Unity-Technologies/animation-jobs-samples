@@ -86,7 +86,7 @@ public class FullBodyIK : MonoBehaviour
         if (go != null)
         {
             go.AddComponent<LookAtEffector>();
-            handle.lookAt =  m_Animator.BindSceneTransform(go.transform);
+            handle.lookAt = m_Animator.BindSceneTransform(go.transform);
             handle.eyesWeight = m_Animator.BindSceneProperty(go.transform, typeof(LookAtEffector), "eyesWeight");
             handle.headWeight = m_Animator.BindSceneProperty(go.transform, typeof(LookAtEffector), "headWeight");
             handle.bodyWeight = m_Animator.BindSceneProperty(go.transform, typeof(LookAtEffector), "bodyWeight");
@@ -100,7 +100,7 @@ public class FullBodyIK : MonoBehaviour
         var go = CreateBodyEffector(name);
         if (go != null)
         {
-            handle.body =  m_Animator.BindSceneTransform(go.transform);
+            handle.body = m_Animator.BindSceneTransform(go.transform);
         }
         return go;
     }
@@ -138,56 +138,56 @@ public class FullBodyIK : MonoBehaviour
         var selectedTransform = Selection.transforms;
 
         var stream = new AnimationStream();
-        if(m_Animator.OpenAnimationStream(ref stream))
+        if (m_Animator.OpenAnimationStream(ref stream))
         {
             AnimationHumanStream humanStream = stream.AsHuman();
 
             // don't sync if transform is currently selected
-            if( !Array.Exists(selectedTransform, transform => transform == m_LeftFootEffector.transform) )
+            if (!Array.Exists(selectedTransform, tr => tr == m_LeftFootEffector.transform))
             {
                 m_LeftFootEffector.transform.position = humanStream.GetGoalPositionFromPose(AvatarIKGoal.LeftFoot);
                 m_LeftFootEffector.transform.rotation = humanStream.GetGoalRotationFromPose(AvatarIKGoal.LeftFoot);
             }
 
-            if( !Array.Exists(selectedTransform, transform => transform == m_RightFootEffector.transform) )
+            if (!Array.Exists(selectedTransform, tr => tr == m_RightFootEffector.transform))
             {
                 m_RightFootEffector.transform.position = humanStream.GetGoalPositionFromPose(AvatarIKGoal.RightFoot);
                 m_RightFootEffector.transform.rotation = humanStream.GetGoalRotationFromPose(AvatarIKGoal.RightFoot);
             }
 
-            if( !Array.Exists(selectedTransform, transform => transform == m_LeftHandEffector.transform) )
+            if (!Array.Exists(selectedTransform, tr => tr == m_LeftHandEffector.transform))
             {
                 m_LeftHandEffector.transform.position = humanStream.GetGoalPositionFromPose(AvatarIKGoal.LeftHand);
                 m_LeftHandEffector.transform.rotation = humanStream.GetGoalRotationFromPose(AvatarIKGoal.LeftHand);
             }
 
-            if( !Array.Exists(selectedTransform, transform => transform == m_RightHandEffector.transform) )
+            if (!Array.Exists(selectedTransform, tr => tr == m_RightHandEffector.transform))
             {
                 m_RightHandEffector.transform.position = humanStream.GetGoalPositionFromPose(AvatarIKGoal.RightHand);
                 m_RightHandEffector.transform.rotation = humanStream.GetGoalRotationFromPose(AvatarIKGoal.RightHand);
             }
 
-            if( !Array.Exists(selectedTransform, transform => transform == m_LeftKneeHintEffector.transform) )
+            if (!Array.Exists(selectedTransform, tr => tr == m_LeftKneeHintEffector.transform))
             {
                 m_LeftKneeHintEffector.transform.position = humanStream.GetHintPosition(AvatarIKHint.LeftKnee);
             }
 
-            if( !Array.Exists(selectedTransform, transform => transform == m_RightKneeHintEffector.transform) )
+            if (!Array.Exists(selectedTransform, tr => tr == m_RightKneeHintEffector.transform))
             {
                 m_RightKneeHintEffector.transform.position = humanStream.GetHintPosition(AvatarIKHint.RightKnee);
             }
 
-            if( !Array.Exists(selectedTransform, transform => transform == m_LeftElbowHintEffector.transform) )
+            if (!Array.Exists(selectedTransform, tr => tr == m_LeftElbowHintEffector.transform))
             {
                 m_LeftElbowHintEffector.transform.position = humanStream.GetHintPosition(AvatarIKHint.LeftElbow);
             }
 
-            if( !Array.Exists(selectedTransform, transform => transform == m_RightElbowHintEffector.transform) )
+            if (!Array.Exists(selectedTransform, tr => tr == m_RightElbowHintEffector.transform))
             {
                 m_RightElbowHintEffector.transform.position = humanStream.GetHintPosition(AvatarIKHint.RightElbow);
             }
 
-            if( !Array.Exists(selectedTransform, transform => transform == m_BodyRotationEffector.transform) )
+            if (!Array.Exists(selectedTransform, tr => tr == m_BodyRotationEffector.transform))
             {
                 m_BodyRotationEffector.transform.position = humanStream.bodyPosition;
                 m_BodyRotationEffector.transform.rotation = humanStream.bodyRotation;
@@ -239,9 +239,8 @@ public class FullBodyIK : MonoBehaviour
 
         m_BodyRotationEffector = SetupBodyEffector(ref job.bodyEffector, "BodyEffector");
 
-       
 
-        m_IKPlayable = AnimationScriptPlayable.Create<FullBodyIKJob>(m_Graph, job, 1);
+        m_IKPlayable = AnimationScriptPlayable.Create(m_Graph, job, 1);
         m_IKPlayable.ConnectInput(0, clipPlayable, 0, 1.0f);
 
         output.SetSourcePlayable(m_IKPlayable);
@@ -266,7 +265,7 @@ public class FullBodyIK : MonoBehaviour
         GameObject.DestroyImmediate(m_LookAtEffector);
         GameObject.DestroyImmediate(m_BodyRotationEffector);
 
-        if(m_Graph.IsValid())
+        if (m_Graph.IsValid())
             m_Graph.Destroy();
     }
 
@@ -275,16 +274,20 @@ public class FullBodyIK : MonoBehaviour
         var job = m_IKPlayable.GetJobData<FullBodyIKJob>();
         job.stiffness = stiffness;
         job.maxPullIteration = maxPullIteration;
-        m_IKPlayable.SetJobData<FullBodyIKJob>(job);
+        m_IKPlayable.SetJobData(job);
     }
 
     void LateUpdate()
     {
         // Synchronize on LateUpdate to sync goal on current frame
-        if(syncGoal)
+        if (syncGoal)
         {
             SyncIKFromPose();
             syncGoal = false;
         }
+
+        // Synchronize the body position and the body effector position
+        var job = m_IKPlayable.GetJobData<FullBodyIKJob>();
+        m_BodyRotationEffector.transform.position = job.bodyPosition;
     }
 }

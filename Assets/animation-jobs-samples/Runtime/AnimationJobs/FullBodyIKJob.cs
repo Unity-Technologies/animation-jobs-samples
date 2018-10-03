@@ -1,6 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.Playables;
-using UnityEngine.Animations;
 using UnityEngine.Experimental.Animations;
 using Unity.Collections;
 
@@ -47,6 +45,7 @@ public struct FullBodyIKJob : IAnimationJob
     public LookEffectorHandle lookAtEffector;
 
     public BodyEffectorHandle bodyEffector;
+    public Vector3 bodyPosition;
 
     public struct IKLimbHandle
     {
@@ -66,7 +65,7 @@ public struct FullBodyIKJob : IAnimationJob
 
     private EffectorHandle GetEffectorHandle(AvatarIKGoal goal)
     {
-        switch(goal)
+        switch (goal)
         {
             default:
             case AvatarIKGoal.LeftFoot: return leftFootEffector;
@@ -78,7 +77,7 @@ public struct FullBodyIKJob : IAnimationJob
 
     private IKLimbHandle GetIKLimbHandle(AvatarIKGoal goal)
     {
-        switch(goal)
+        switch (goal)
         {
             default:
             case AvatarIKGoal.LeftFoot: return leftLeg;
@@ -134,7 +133,7 @@ public struct FullBodyIKJob : IAnimationJob
 
     private void SetMaximumExtension(AnimationStream stream, ref IKLimbHandle handle)
     {
-        if(handle.maximumExtension == 0)
+        if (handle.maximumExtension == 0)
         {
             Vector3 top = handle.top.GetPosition(stream);
             Vector3 middle = handle.middle.GetPosition(stream);
@@ -155,7 +154,6 @@ public struct FullBodyIKJob : IAnimationJob
         public float   goalPullWeight;
         public float   maximumExtension; // maximum extension of the limb which define when the pull solver start to pull on the body (spring rest lenght)
         public float   stiffness;        // stiffness of the limb, at 0 the limb is loosen, at 1 the limb is really stiff
-        
     }
 
     private void PrepareSolvePull(AnimationStream stream, NativeArray<LimbPart> limbParts)
@@ -191,7 +189,7 @@ public struct FullBodyIKJob : IAnimationJob
         NativeArray<LimbPart> limbParts = new NativeArray<LimbPart>(4, Allocator.Temp);
         PrepareSolvePull(stream, limbParts);
         
-        for(int iter=0;iter<maxPullIteration;iter++)
+        for (int iter = 0; iter < maxPullIteration; iter++)
         {
             Vector3 deltaPosition = Vector3.zero;
             for (int goalIter = 0; goalIter < 4; goalIter++)
@@ -221,16 +219,11 @@ public struct FullBodyIKJob : IAnimationJob
     {
         AnimationHumanStream humanStream = stream.AsHuman();
 
-        Vector3 bodyPosition = humanStream.bodyPosition;
+        bodyPosition = humanStream.bodyPosition;
         Vector3 bodyPositionDelta = SolvePull(stream);
 
         bodyPosition += bodyPositionDelta;
         humanStream.bodyPosition = bodyPosition;
-
-        if (bodyEffector.body.IsValid(stream))
-        {
-            bodyEffector.body.SetPosition(stream, bodyPosition);
-        }
 
         humanStream.SolveIK();
     }
