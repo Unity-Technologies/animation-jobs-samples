@@ -1,5 +1,9 @@
 ﻿using UnityEngine;
+#if UNITY_2019_3_OR_NEWER
+using UnityEngine.Animations;
+#else
 using UnityEngine.Experimental.Animations;
+#endif
 using Unity.Collections;
 
 public struct FullBodyIKJob : IAnimationJob

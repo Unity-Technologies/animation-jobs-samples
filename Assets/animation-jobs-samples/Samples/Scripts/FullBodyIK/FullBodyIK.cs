@@ -1,9 +1,13 @@
 ﻿using System;
 using UnityEngine;
-using UnityEngine.Animations;
 using UnityEngine.Playables;
-using UnityEngine.Experimental.Animations;
 using UnityEditor;
+
+#if UNITY_2019_3_OR_NEWER
+using UnityEngine.Animations;
+#else
+using UnityEngine.Experimental.Animations;
+#endif
 
 public class FullBodyIK : MonoBehaviour
 {
