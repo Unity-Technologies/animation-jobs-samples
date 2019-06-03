@@ -4,7 +4,7 @@ Animation C# Jobs Samples
 The Animation C# Jobs Samples repository includes examples of Playable graphs
 using Animation C# Jobs. For more information, see [AnimationScriptPlayable](https://docs.unity3d.com/ScriptReference/Experimental.Animations.AnimationScriptPlayable.html).
 
-_Compatible with Unity 2018.2 or later._
+_Compatible with Unity 2019.3 or later._
 
 The samples
 -----------

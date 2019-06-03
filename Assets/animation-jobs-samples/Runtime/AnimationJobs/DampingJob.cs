@@ -1,7 +1,10 @@
-﻿using System.Collections.Generic;
-using Unity.Collections;
+﻿using Unity.Collections;
 using UnityEngine;
+#if UNITY_2019_3_OR_NEWER
+using UnityEngine.Animations;
+#else
 using UnityEngine.Experimental.Animations;
+#endif
 
 public struct DampingJob : IAnimationJob
 {
