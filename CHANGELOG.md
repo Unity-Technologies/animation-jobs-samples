@@ -6,7 +6,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-## Fixed
+## [2.0.0] - 2019-06-03
+
+### Changed
+
+- Animation jobs moved out of experimental namespace.
+
+### Fixed
 
 - Regenerated the ProgrammerCat's generic avatar to fix the 90˚ rotation once
   entering play mode.
