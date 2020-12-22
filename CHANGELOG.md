@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [3.0.0] - 2020-12-22
+
+### Added
+- Added Unity Companion License (LICENSE.md) to clarify licensing.
+
 ## [2.0.0] - 2019-06-03
 
 ### Changed
